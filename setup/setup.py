@@ -67,7 +67,7 @@ try:
         subprocess.run(['pip3', 'install', '-r', 'requirements.txt', '--proxy', args.proxy], cwd=f'/home/{username}/{repo_name}/setup/', env=env, check=True)
         print(f'SETUP: Installed the required packages using the proxy {args.proxy} ... OK')
     else:
-        subprocess.run(['pip3', 'install', '-r', 'requirements.txt'], cwd=f'{cwd}setup/', check=True)
+        subprocess.run(['pip3', 'install', '-r', 'requirements.txt'], cwd=f'{cwd}/setup/', check=True)
         print('SETUP: Installed the required packages ... OK')
     
 except subprocess.CalledProcessError as e:
