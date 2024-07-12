@@ -8,6 +8,7 @@ Fetches the current public IP address and compares it to the old IP address. If 
 - Writes IP address into log file with the current timestamp.
 - Offers the option to send a notification e-mail on IP change.
 - Uses a configuration file to set the parameters for the service.
+- Offers option to install dependencies using proxy
 
 ## Setup
 To install this service follow the steps below:
