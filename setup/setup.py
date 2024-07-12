@@ -1,4 +1,4 @@
-import argparse, getpass, subprocess
+import argparse, getpass, subprocess, os
 
 # Parse command line arguments for proxy
 parser = argparse.ArgumentParser(description='Setup script for logPublicIP service with optional proxy.')
@@ -35,6 +35,7 @@ WantedBy=multi-user.target
 # Specify the filename for the service file
 filename = f'{repo_name}.service'
 
+cwd = os.getcwd()
 
 try: 
     # Write the content to the service file
@@ -66,7 +67,7 @@ try:
         subprocess.run(['pip3', 'install', '-r', 'requirements.txt', '--proxy', args.proxy], cwd=f'/home/{username}/{repo_name}/setup/', env=env, check=True)
         print(f'SETUP: Installed the required packages using the proxy {args.proxy} ... OK')
     else:
-        subprocess.run(['pip3', 'install', '-r', 'requirements.txt'], cwd=f'/home/{username}/{repo_name}/setup/', check=True)
+        subprocess.run(['pip3', 'install', '-r', 'requirements.txt'], cwd=f'{cwd}setup/', check=True)
         print('SETUP: Installed the required packages ... OK')
     
 except subprocess.CalledProcessError as e:
