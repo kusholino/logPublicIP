@@ -1,6 +1,4 @@
-import argparse
-import getpass
-import subprocess
+import argparse, getpass, subprocess, os
 
 # Parse command line arguments for proxy
 parser = argparse.ArgumentParser(description='Setup script for logPublicIP service with optional proxy.')
@@ -37,13 +35,17 @@ WantedBy=multi-user.target
 # Specify the filename for the service file
 filename = f'{repo_name}.service'
 
+home_directory = os.path.expanduser(f"~{username}")
+
+service_file_path = os.path.join(home_directory, repo_name, filename)
+
 try: 
     # Write the content to the service file
     with open(filename, 'w') as file:
         file.write(service_content.strip())
     print(f'SETUP: Service file {filename} has been created ... OK')
 
-    subprocess.run(['mv', f'/home/{username}/{repo_name}/{filename}', '/etc/systemd/system/'], check=True)
+    subprocess.run(['mv', service_file_path, '/etc/systemd/system/'], check=True)
 
     print('SETUP: Moved the service file to /etc/systemd/system/ ... OK')
 
