@@ -1,0 +1,26 @@
+# Ignore all .log files
+*.log
+
+# Ignore specific directories
+node_modules/
+dist/
+build/
+
+# Ignore specific files
+.env
+config/config.conf
+
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Python virtual environments
+venv/
+.env/
+
+# Ignore Java class files
+*.class
+
+# Ignore temporary files created by editors
+*.swp
+*.swo
+*~
