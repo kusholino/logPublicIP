@@ -43,7 +43,7 @@ try:
         file.write(service_content.strip())
     print(f'SETUP: Service file {filename} has been created ... OK')
 
-    subprocess.run(['mv', filename, '/etc/systemd/system/'], check=True)
+    subprocess.run(['mv', f'/home/{username}/{repo_name}/{filename}', '/etc/systemd/system/'], check=True)
 
     print('SETUP: Moved the service file to /etc/systemd/system/ ... OK')
 
