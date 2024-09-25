@@ -7,17 +7,17 @@ config = configparser.ConfigParser()
 config.read('config/config.conf')
 
 # get the email configuration from the config file
-smtp_server = config['email']['smtp_server']
-port = config['email']['port']
-username = config['email']['username']
-password = config['email']['password']
-sender_email = config['email']['sender_email']
-receiver_email = config['email']['receiver_email']
-subject = config['email']['subject']
-send_mail = config['email']['send_mail']
+smtp_server = config['SMTP']['smtp_server']
+port = config['SMTP']['port']
+username = config['SMTP']['username']
+password = config['SMTP']['password']
+sender_email = config['SMTP']['sender_email']
+receiver_email = config['SMTP']['receiver_email']
+subject = config['SMTP']['subject']
+send_mail = config['SMTP']['send_mail']
 
 # get the log file path from the config file                
-log_file = config['log']['log_file']
+log_file = config['LOG']['log_file']
 public_ip = ip.get()
 
 
